@@ -1,0 +1,42 @@
+#VM NAT ping issue
+
+1. issue description : Vmware VM machines are not pinging 
+
+1.1 both are in same network having same gateway and dns . but still same issue .
+1.2 check the network settings from edit tab of your vmware , in that nat settings are configured properly check the host bridge in nat 
+1.3 still same issue na check the firewall , wheather the icmp is enabled or not .
+
+for that powershell cmds """ netsh firewall set icmpsetting 8 enable """
+
+1.4 after that check \ping\.
+
+
+#how to enable server ps session in management client
+
+check wheather u can able to take are not
+ 
+1. "" new-pssession ""
+2. error : server is not added into trusted host
+3. enable winrm 
+4. add the server in trusted host 
+5. check wheather in trusted host are not "" Get-Item WSMan:\localhost\Client\TrustedHosts ""
+6. then add that host as trusted host "" Set-Item WSMan:\localhost\Client\TrustedHosts -Value 'machineA,machineB' ""
+7. check with pssession "" new-pssession -computername "enter the name " -credential(get-credintial) ""
+8. that session will be stored in a id 
+9. "" enter-pssession -id 'enter the id previously u have stored in above cmd' ""
+
+
+*****important*****
+
+1. AD domain installation on windows server core 2022
+
+1.1 we need to make the ip address and dns as static 
+1.2 initially change the system name 
+1.3 make a ip as static ( any ip in that scope)
+1.4 make the dns ip also same as system ip ( *imp - use same ip address used for that server machinbe)
+1.5 that install the ad by using following cmds 
+
+
+chocolatey installation cmds
+
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
