@@ -40,3 +40,18 @@ check wheather u can able to take are not
 chocolatey installation cmds
 
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+
+#how to push to git
+
+select a path and clone the git repository
+
+git clone "repo link"
+
+create a file u need to push into the git repo
+
+now push to cloud 
+
+git add .
+git commit -m "initail commit"
+git push
