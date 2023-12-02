@@ -62,3 +62,21 @@ for update also u need to use same cmd as above
 git add .
 git commit -m "initail commit"
 git push
+
+AD remaining cmds 
+
+import-module addsdeployment
+install-addsforest
+
+after installation the system will be restarted 
+after that we can login . 
+now the dns will be changed as loop address 
+we need to change by using sconfig or below mentioned type 
+
+cmds:
+
+get-netipaddress -ipaddress "ip"
+get-dnsclientserveraddress 
+set-dnsclientserveraddress -interfaceindex "enter the index no" -serveraddress "enter the host machine address (server vm address)"
+
+now restart and join the client system in domain
